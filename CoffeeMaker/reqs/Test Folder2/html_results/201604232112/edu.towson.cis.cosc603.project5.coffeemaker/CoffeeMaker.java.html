@@ -1,0 +1,4100 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>CoffeeMaker.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package edu.towson.cis.cosc603.project5.coffeemaker;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * CoffeeMaker object</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @version $Revision: 1.0 $</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class CoffeeMaker {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/** Array of recipes in coffee maker */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;private Recipe [] recipeArray;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/** Number of recipes in coffee maker */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_10'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;private final int NUM_RECIPES = 4;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/** Array describing if the array is full */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;private boolean [] recipeFull;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/** Inventory of the coffee maker */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Inventory inventory;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Constructor for the coffee maker</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_20'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;public CoffeeMaker() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_21'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;    recipeArray = new Recipe[NUM_RECIPES];</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_22'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;    recipeFull = new boolean[NUM_RECIPES];</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_23'/>
+23
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_23'>3</a>
+<span>
+
+1. <init> : changed conditional boundary &rarr; KILLED<br/>
+
+2. <init> : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+3. <init> : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;for(int i = 0; i &#60; NUM_RECIPES; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_24'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;   recipeArray[i] = new Recipe();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_25'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;   recipeFull[i] = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_27'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;inventory = new Inventory();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_28'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * Returns true if a recipe is successfully added to the </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * coffee maker</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param r</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @return boolean */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public boolean addRecipe(Recipe r) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_37'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        boolean canAddRecipe = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        //Check if the recipe already exists</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_40'>1</a>
+<span>
+
+1. addRecipe : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return recipeValidation(r, canAddRecipe);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_44'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param r</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_45'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param canAddRecipe</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_46'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @return</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public boolean recipeValidation(Recipe r, boolean canAddRecipe) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_49'/>
+49
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_49'>3</a>
+<span>
+
+1. recipeValidation : changed conditional boundary &rarr; KILLED<br/>
+
+2. recipeValidation : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+3. recipeValidation : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;for(int i = 0; i &#60; NUM_RECIPES; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_50'/>
+50
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_50'>1</a>
+<span>
+
+1. recipeValidation : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if(r.equals(recipeArray[i])) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_51'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                canAddRecipe = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_52'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_54'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_55'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        //Check for an empty recipe, add recipe to first empty spot</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_56'/>
+56
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_56'>1</a>
+<span>
+
+1. recipeValidation : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if(canAddRecipe) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_57'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        &#9;int emptySpot = -1;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_58'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        &#9;canAddRecipe = emptySpot(r, canAddRecipe, emptySpot);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_59'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_60'/>
+60
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_60'>1</a>
+<span>
+
+1. recipeValidation : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return canAddRecipe;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_61'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_62'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_63'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_64'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param r</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_65'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param canAddRecipe</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_66'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param emptySpot</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_67'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @return</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_68'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_69'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public boolean emptySpot(Recipe r, boolean canAddRecipe, int emptySpot) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_70'/>
+70
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_70'>3</a>
+<span>
+
+1. emptySpot : changed conditional boundary &rarr; KILLED<br/>
+
+2. emptySpot : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+3. emptySpot : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;for(int i = 0; i &#60; NUM_RECIPES; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_71'/>
+71
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_71'>1</a>
+<span>
+
+1. emptySpot : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;if(!recipeFull[i]) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_72'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;emptySpot = i;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_73'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;canAddRecipe = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_74'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_75'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_76'/>
+76
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_76'>1</a>
+<span>
+
+1. emptySpot : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;if(emptySpot != -1) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_77'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;recipeArray[emptySpot] = r;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_78'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;recipeFull[emptySpot] = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_79'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_80'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_81'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;canAddRecipe = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_82'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_83'>1</a>
+<span>
+
+1. emptySpot : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;return canAddRecipe;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_84'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_85'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_86'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_87'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * Returns true if the recipe was deleted from the </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_88'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * coffee maker</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_89'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @param r</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_90'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_91'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9; * @return boolean */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_92'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean deleteRecipe(Recipe r) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_93'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        boolean canDeleteRecipe = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_94'/>
+94
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_94'>1</a>
+<span>
+
+1. deleteRecipe : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if(r != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_95'/>
+95
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_95'>3</a>
+<span>
+
+1. deleteRecipe : changed conditional boundary &rarr; KILLED<br/>
+
+2. deleteRecipe : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+3. deleteRecipe : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;        for(int i = 0; i &#60; NUM_RECIPES; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_96'/>
+96
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_96'>1</a>
+<span>
+
+1. deleteRecipe : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;            if(r.equals(recipeArray[i])) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_97'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;                this.recipeArray[i] = recipeArray[i]; </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_98'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;                canDeleteRecipe = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_99'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_100'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_101'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_102'/>
+102
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_102'>1</a>
+<span>
+
+1. deleteRecipe : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return canDeleteRecipe;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_103'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_104'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_105'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_106'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Returns true if the recipe is successfully edited</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_107'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param oldRecipe</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_108'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param newRecipe</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_109'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_110'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return boolean */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_111'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean editRecipe(Recipe oldRecipe, Recipe newRecipe) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_112'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        boolean canEditRecipe = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_113'/>
+113
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_113'>3</a>
+<span>
+
+1. editRecipe : changed conditional boundary &rarr; KILLED<br/>
+
+2. editRecipe : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+3. editRecipe : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        for(int i = 0; i &#60; NUM_RECIPES; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_114'/>
+114
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_114'>1</a>
+<span>
+
+1. editRecipe : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        &#9;if(recipeArray[i].getName() != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_115'/>
+115
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_115'>1</a>
+<span>
+
+1. editRecipe : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;            if(newRecipe.equals(recipeArray[i])) { </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_116'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;            &#9;recipeArray[i] = new Recipe();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_117'/>
+117
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_117'>1</a>
+<span>
+
+1. editRecipe : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;            &#9;if(addRecipe(newRecipe)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_118'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;            &#9;&#9;canEditRecipe = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_119'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;            &#9;} else {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_120'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>&#9;            &#9;&#9;canEditRecipe = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_121'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;            &#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_122'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_123'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        &#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_124'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_125'/>
+125
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_125'>1</a>
+<span>
+
+1. editRecipe : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return canEditRecipe;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_126'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_127'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_128'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_129'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Returns true if inventory was successfully added</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_130'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param amtCoffee</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_131'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param amtMilk</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_132'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param amtSugar</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_133'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param amtChocolate</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_134'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_135'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return boolean */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_136'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean addInventory(int amtCoffee, int amtMilk, int amtSugar, int amtChocolate) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_137'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        boolean canAddInventory = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_138'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_139'/>
+139
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_139'>8</a>
+<span>
+
+1. addInventory : changed conditional boundary &rarr; KILLED<br/>
+
+2. addInventory : changed conditional boundary &rarr; KILLED<br/>
+
+3. addInventory : changed conditional boundary &rarr; KILLED<br/>
+
+4. addInventory : changed conditional boundary &rarr; KILLED<br/>
+
+5. addInventory : negated conditional &rarr; KILLED<br/>
+
+6. addInventory : negated conditional &rarr; KILLED<br/>
+
+7. addInventory : negated conditional &rarr; KILLED<br/>
+
+8. addInventory : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if(amtCoffee &#62;=0 &#38;&#38; amtMilk &#62;= 0 &#38;&#38; amtSugar &#62;= 0 &#38;&#38; amtChocolate&#62;= 0) { </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_140'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_141'/>
+141
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_141'>2</a>
+<span>
+
+1. addInventory : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+2. addInventory : removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setCoffee &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        &#9;inventory.setCoffee(inventory.getCoffee() + amtCoffee);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_142'/>
+142
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_142'>2</a>
+<span>
+
+1. addInventory : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+2. addInventory : removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setMilk &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;        inventory.setMilk(inventory.getMilk() + amtMilk);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_143'/>
+143
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_143'>2</a>
+<span>
+
+1. addInventory : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+2. addInventory : removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setSugar &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;        inventory.setSugar(inventory.getSugar() + amtSugar);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_144'/>
+144
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_144'>2</a>
+<span>
+
+1. addInventory : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+2. addInventory : removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setChocolate &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;        inventory.setChocolate(inventory.getChocolate() + amtChocolate);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_145'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;       </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_146'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            canAddInventory = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_147'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_148'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_149'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>       </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_150'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     //    if (amtCoffee &#60; 0 || amtCoffee &#62;= 0 ||amtMilk &#60; 0 || amtMilk &#62;=0 || amtSugar &#60; 0 || amtSugar &#62;=0 || amtChocolate &#60; 0 || amtChocolate &#62;=0)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_151'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        &#9;// &#38;&#38; ((amtCoffee||amtMilk||amtSugar||amtChocolate) &#60;0)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_152'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        //&#9; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_153'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>         else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_154'/>
+154
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_154'>2</a>
+<span>
+
+1. addInventory : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+2. addInventory : removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setCoffee &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;        inventory.setCoffee(inventory.getCoffee() + amtCoffee);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_155'/>
+155
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_155'>2</a>
+<span>
+
+1. addInventory : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+2. addInventory : removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setMilk &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;        inventory.setMilk(inventory.getMilk() + amtMilk);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_156'/>
+156
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_156'>2</a>
+<span>
+
+1. addInventory : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+2. addInventory : removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setSugar &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;        inventory.setSugar(inventory.getSugar() + amtSugar);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_157'/>
+157
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_157'>2</a>
+<span>
+
+1. addInventory : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+2. addInventory : removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setChocolate &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;        inventory.setChocolate(inventory.getChocolate() + amtChocolate);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_158'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;       canAddInventory = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_159'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;       </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_160'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_161'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_162'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        else if ((amtCoffee &#62;=0 &#38;&#38; amtMilk &#60; 0) || (amtCoffee &#60; 0 &#38;&#38; amtMilk &#62;= 0) || (amtCoffee &#62;=0 &#38;&#38; amtSugar &#60; 0)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_163'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        &#9;&#9;|| (amtCoffee &#60; 0 &#38;&#38; amtSugar &#62;= 0) || (amtCoffee &#62;=0 &#38;&#38; amtChocolate &#60; 0) || (amtCoffee &#60; 0 &#38;&#38; amtChocolate &#62;=0) </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_164'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        &#9;&#9;|| (amtMilk &#62;=0 &#38;&#38; amtSugar&#60;0) || (amtMilk&#60;0 &#38;&#38; amtSugar&#62;=0) || (amtMilk &#62;= 0 &#38;&#38; amtChocolate &#60;0)||(amtMilk &#60; 0 &#38;&#38; amtChocolate &#62;0)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_165'/>
+165
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_165'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        &#9;&#9;|| (amtSugar&#62;=0 &#38;&#38; amtChocolate&#60;0)||(amtSugar&#60;0 &#38;&#38; amtChocolate&#62;=0)){</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_166'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        &#9;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_167'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;        inventory.setCoffee(inventory.getCoffee() + amtCoffee);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_168'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;        inventory.setMilk(inventory.getMilk() + amtMilk);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_169'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;        inventory.setSugar(inventory.getSugar() + amtSugar);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_170'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;        inventory.setChocolate(inventory.getChocolate() + amtChocolate);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_171'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;       canAddInventory = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_172'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;       }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_173'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;       **/</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_174'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_175'/>
+175
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_175'>1</a>
+<span>
+
+1. addInventory : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return canAddInventory;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_176'/>
+176
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_176'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_177'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_178'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_179'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Returns the inventory of the coffee maker</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_180'/>
+180
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_180'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_181'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return Inventory */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_182'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Inventory checkInventory() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_183'/>
+183
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_183'>1</a>
+<span>
+
+1. checkInventory : mutated return of Object value for edu/towson/cis/cosc603/project5/coffeemaker/CoffeeMaker::checkInventory to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return inventory;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_184'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_185'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_186'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_187'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Returns the change of a user&#39;s beverage purchase, or</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_188'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * the user&#39;s money if the beverage cannot be made</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_189'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param r</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_190'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param amtPaid</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_191'/>
+191
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_191'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_192'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return int */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_193'/>
+193
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_193'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int makeCoffee(Recipe r, int amtPaid) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_194'/>
+194
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_194'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        boolean canMakeCoffee = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_195'/>
+195
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_195'>2</a>
+<span>
+
+1. makeCoffee : changed conditional boundary &rarr; KILLED<br/>
+
+2. makeCoffee : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if(amtPaid &#60; r.getPrice()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_196'/>
+196
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_196'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            canMakeCoffee = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_197'/>
+197
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_197'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_198'/>
+198
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_198'>1</a>
+<span>
+
+1. makeCoffee : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if(!inventory.enoughIngredients(r)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_199'/>
+199
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_199'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            canMakeCoffee = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_200'/>
+200
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_200'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_201'/>
+201
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_201'>1</a>
+<span>
+
+1. makeCoffee : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if(canMakeCoffee) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_202'/>
+202
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_202'>2</a>
+<span>
+
+1. makeCoffee : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+2. makeCoffee : removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setCoffee &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;        inventory.setCoffee(inventory.getCoffee() + r.getAmtCoffee()); </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_203'/>
+203
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_203'>2</a>
+<span>
+
+1. makeCoffee : Replaced integer subtraction with addition &rarr; SURVIVED<br/>
+
+2. makeCoffee : removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setMilk &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;        inventory.setMilk(inventory.getMilk() - r.getAmtMilk());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_204'/>
+204
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_204'>2</a>
+<span>
+
+1. makeCoffee : Replaced integer subtraction with addition &rarr; SURVIVED<br/>
+
+2. makeCoffee : removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setSugar &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;        inventory.setSugar(inventory.getSugar() - r.getAmtSugar());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_205'/>
+205
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_205'>2</a>
+<span>
+
+1. makeCoffee : Replaced integer subtraction with addition &rarr; SURVIVED<br/>
+
+2. makeCoffee : removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setChocolate &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;        inventory.setChocolate(inventory.getChocolate() - r.getAmtChocolate());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_206'/>
+206
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_206'>2</a>
+<span>
+
+1. makeCoffee : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+2. makeCoffee : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return amtPaid - r.getPrice();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_207'/>
+207
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_207'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_208'/>
+208
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_208'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_209'/>
+209
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_209'>1</a>
+<span>
+
+1. makeCoffee : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return amtPaid;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_210'/>
+210
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_210'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_211'/>
+211
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_211'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_212'/>
+212
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_212'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_213'/>
+213
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_213'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_214'/>
+214
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_214'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Returns an array of all the recipes</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_215'/>
+215
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_215'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_216'/>
+216
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_216'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return Recipe[] */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_217'/>
+217
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_217'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Recipe[] getRecipes() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_218'/>
+218
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_218'>1</a>
+<span>
+
+1. getRecipes : mutated return of Object value for edu/towson/cis/cosc603/project5/coffeemaker/CoffeeMaker::getRecipes to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return recipeArray;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_219'/>
+219
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_219'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_220'/>
+220
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_220'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_221'/>
+221
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_221'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_222'/>
+222
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_222'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Returns the Recipe associated with the given name</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_223'/>
+223
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_223'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param name</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_224'/>
+224
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_224'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_225'/>
+225
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_225'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return Recipe */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_226'/>
+226
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_226'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;public Recipe getRecipeForName(String name) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_227'/>
+227
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_227'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;Recipe r = new Recipe();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_228'/>
+228
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_228'>3</a>
+<span>
+
+1. getRecipeForName : negated conditional &rarr; SURVIVED<br/>
+
+2. getRecipeForName : changed conditional boundary &rarr; KILLED<br/>
+
+3. getRecipeForName : Changed increment from 1 to -1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;for(int i = 0; i &#60; NUM_RECIPES; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_229'/>
+229
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_229'>1</a>
+<span>
+
+1. getRecipeForName : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>&#9;&#9;&#9;if(recipeArray[i].getName() != null) { </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_230'/>
+230
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_230'>1</a>
+<span>
+
+1. getRecipeForName : negated conditional &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;&#9;&#9;if((recipeArray[i].getName()).equals(name)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_231'/>
+231
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_231'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>&#9;&#9;&#9;&#9;&#9;r = recipeArray[i];</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_232'/>
+232
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_232'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_233'/>
+233
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_233'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_234'/>
+234
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_234'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_235'/>
+235
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_235'>1</a>
+<span>
+
+1. getRecipeForName : mutated return of Object value for edu/towson/cis/cosc603/project5/coffeemaker/CoffeeMaker::getRecipeForName to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>&#9;&#9;return r;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_236'/>
+236
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_236'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>&#9;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_237'/>
+237
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_237'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_23'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe11(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe11(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b><init><br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testDeleteRecipe2(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addRecipe<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_49'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>recipeValidation<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe4(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>recipeValidation<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe4(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>recipeValidation<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe2(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_50'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>recipeValidation<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testDeleteRecipe1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_56'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>recipeValidation<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testDeleteRecipe1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_60'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>recipeValidation<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_70'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>emptySpot<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe4(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>emptySpot<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe4(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>emptySpot<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testDeleteRecipe1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_71'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>emptySpot<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testDeleteRecipe1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_76'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>emptySpot<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testDeleteRecipe1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>emptySpot<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_94'>94</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_94'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>deleteRecipe<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testDeleteRecipe3(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_95'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>deleteRecipe<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testDeleteRecipe2(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>deleteRecipe<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testDeleteRecipe2(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>deleteRecipe<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testDeleteRecipe1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_96'>96</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_96'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>deleteRecipe<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testDeleteRecipe2(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_102'>102</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_102'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>deleteRecipe<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testDeleteRecipe3(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_113'>113</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_113'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>editRecipe<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe2(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>editRecipe<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe2(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>editRecipe<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_114'>114</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_114'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>editRecipe<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_115'>115</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_115'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>editRecipe<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_117'>117</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_117'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>editRecipe<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_125'>125</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_125'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>editRecipe<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe2(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_139'>139</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_139'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory7(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory7(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory7(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory7(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory3(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory4(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory7(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory7(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_141'>141</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_141'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage5(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage5(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setCoffee &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_142'>142</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_142'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage5(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage5(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setMilk &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_143'>143</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_143'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage5(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage5(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setSugar &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_144'>144</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_144'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>none</span></span> removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setChocolate &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_154'>154</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_154'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory3(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory6(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setCoffee &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_155'>155</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_155'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory3(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory3(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setMilk &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_156'>156</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_156'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory4(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory4(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setSugar &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_157'>157</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_157'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory6(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory5(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setChocolate &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_175'>175</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_175'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory3(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_183'>183</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_183'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>checkInventory<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testCheckInventory1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> mutated return of Object value for edu/towson/cis/cosc603/project5/coffeemaker/CoffeeMaker::checkInventory to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_195'>195</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_195'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>makeCoffee<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage3(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>makeCoffee<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage2(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_198'>198</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_198'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>makeCoffee<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage5(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_201'>201</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_201'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>makeCoffee<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage2(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_202'>202</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_202'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>makeCoffee<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>makeCoffee<br/><b>Killed by : </b>none</span></span> removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setCoffee &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_203'>203</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_203'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>makeCoffee<br/><b>Killed by : </b>none</span></span> Replaced integer subtraction with addition &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>makeCoffee<br/><b>Killed by : </b>none</span></span> removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setMilk &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_204'>204</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_204'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>makeCoffee<br/><b>Killed by : </b>none</span></span> Replaced integer subtraction with addition &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>makeCoffee<br/><b>Killed by : </b>none</span></span> removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setSugar &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_205'>205</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_205'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>makeCoffee<br/><b>Killed by : </b>none</span></span> Replaced integer subtraction with addition &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>makeCoffee<br/><b>Killed by : </b>none</span></span> removed call to edu/towson/cis/cosc603/project5/coffeemaker/Inventory::setChocolate &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_206'>206</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_206'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>makeCoffee<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage5(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>makeCoffee<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage5(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_209'>209</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_209'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>makeCoffee<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage2(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_218'>218</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_218'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getRecipes<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe14(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> mutated return of Object value for edu/towson/cis/cosc603/project5/coffeemaker/CoffeeMaker::getRecipes to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_228'>228</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_228'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getRecipeForName<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe15(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getRecipeForName<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe15(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getRecipeForName<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_229'>229</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_229'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getRecipeForName<br/><b>Killed by : </b>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe15(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_230'>230</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_230'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getRecipeForName<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1cdf2d0_235'>235</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1cdf2d0_235'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getRecipeForName<br/><b>Killed by : </b>none</span></span> mutated return of Object value for edu/towson/cis/cosc603/project5/coffeemaker/CoffeeMaker::getRecipeForName to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe3(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (3 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe12(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (5 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (5 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe7(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (7 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe2(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (3 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe4(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (2 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe10(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (5 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe5(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (3 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testCheckInventory2(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (4 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (90 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testDeleteRecipe3(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (3 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testDeleteRecipe1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (3 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory2(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (7 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe6(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (3 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory4(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (6 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe9(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (3 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage5(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (2 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe13(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (19 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory6(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (7 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage3(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (4 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe8(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (25 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe15(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (11 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testCheckInventory1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (4 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe2(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (9 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe6(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (4 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (3 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe11(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (3 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe8(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (18 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe3(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (3 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe5(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (2 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe1(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (3 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe4(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (3 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testDeleteRecipe2(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (3 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory3(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (6 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory5(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (9 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testEditRecipe7(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (2 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddRecipe14(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (26 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage2(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (2 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testAddInventory7(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (6 ms)</li><li>edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest.testPurchaseBeverage4(edu.towson.cis.cosc603.project5.coffeemaker.CoffeeMakerTest) (3 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.5
+
+</body>
+</html>
