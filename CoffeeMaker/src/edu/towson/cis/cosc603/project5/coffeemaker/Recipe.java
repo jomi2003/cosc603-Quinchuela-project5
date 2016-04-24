@@ -115,7 +115,7 @@ public class Recipe {
      * @param price int
      */
     public void setPrice(int price) {
-    	if(price >= 0) {
+    	if((this.price = price) >= 0) {
     		this.price = price;
     	}
     	else {

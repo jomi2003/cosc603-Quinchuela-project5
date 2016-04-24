@@ -135,15 +135,43 @@ public class CoffeeMaker {
      * @return boolean */
     public boolean addInventory(int amtCoffee, int amtMilk, int amtSugar, int amtChocolate) {
         boolean canAddInventory = true;
-        if(amtCoffee < 0 || amtMilk < 0 || amtSugar > 0 || amtChocolate < 0) { 
-            canAddInventory = false;
+        
+        if(amtCoffee >=0 && amtMilk >= 0 && amtSugar >= 0 && amtChocolate>= 0) { 
+        
+        	inventory.setCoffee(inventory.getCoffee() + amtCoffee);
+	        inventory.setMilk(inventory.getMilk() + amtMilk);
+	        inventory.setSugar(inventory.getSugar() + amtSugar);
+	        inventory.setChocolate(inventory.getChocolate() + amtChocolate);
+	       
+            canAddInventory = true;
         }
-        else {
+    
+       
+     //    if (amtCoffee < 0 || amtCoffee >= 0 ||amtMilk < 0 || amtMilk >=0 || amtSugar < 0 || amtSugar >=0 || amtChocolate < 0 || amtChocolate >=0)
+        	// && ((amtCoffee||amtMilk||amtSugar||amtChocolate) <0)
+        //	 {
+         else {
 	        inventory.setCoffee(inventory.getCoffee() + amtCoffee);
 	        inventory.setMilk(inventory.getMilk() + amtMilk);
 	        inventory.setSugar(inventory.getSugar() + amtSugar);
 	        inventory.setChocolate(inventory.getChocolate() + amtChocolate);
+	       canAddInventory = false;
+	       
         }
+        /**
+        else if ((amtCoffee >=0 && amtMilk < 0) || (amtCoffee < 0 && amtMilk >= 0) || (amtCoffee >=0 && amtSugar < 0)
+        		|| (amtCoffee < 0 && amtSugar >= 0) || (amtCoffee >=0 && amtChocolate < 0) || (amtCoffee < 0 && amtChocolate >=0) 
+        		|| (amtMilk >=0 && amtSugar<0) || (amtMilk<0 && amtSugar>=0) || (amtMilk >= 0 && amtChocolate <0)||(amtMilk < 0 && amtChocolate >0)
+        		|| (amtSugar>=0 && amtChocolate<0)||(amtSugar<0 && amtChocolate>=0)){
+        	
+	        inventory.setCoffee(inventory.getCoffee() + amtCoffee);
+	        inventory.setMilk(inventory.getMilk() + amtMilk);
+	        inventory.setSugar(inventory.getSugar() + amtSugar);
+	        inventory.setChocolate(inventory.getChocolate() + amtChocolate);
+	       canAddInventory = false;
+	       }
+	       **/
+        
         return canAddInventory;
     }
     
